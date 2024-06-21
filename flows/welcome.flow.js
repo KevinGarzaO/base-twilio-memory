@@ -27,9 +27,7 @@ module.exports = addKeyword([EVENTS.WELCOME, "Hola"])
           return fallBack(message);  
         } catch (error) {
           console.error(error);
-        }    
-
-          
+        }       
       }
   );
 
