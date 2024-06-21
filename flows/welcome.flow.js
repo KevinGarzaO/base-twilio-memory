@@ -9,6 +9,7 @@ module.exports = addKeyword([EVENTS.WELCOME, "Hola"])
   .addAction(async (ctx, { flowDynamic }) => {
       try {
         const response = await ChatGPTInstance.handleMsgChatGPT(ctx,prompt)
+        console.log(ctx)
         const message = response.text.replace("**", "*")
         await flowDynamic(message, { media: "https://babelink.com.mx/images/Caroline.jpg" })
       } catch (error) {
@@ -21,6 +22,7 @@ module.exports = addKeyword([EVENTS.WELCOME, "Hola"])
   .addAction({ capture: true  }, async (ctx, { fallBack }) => {
         try {
           const response = await ChatGPTInstance.handleMsgChatGPT(ctx,ctx.body)
+          console.log(ctx)
           const message = response.text.replace("**", "*")
           return fallBack(message);  
         } catch (error) {
